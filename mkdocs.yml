@@ -1,10 +1,50 @@
-site_name: 我的个人博客
+site_name: 学术笔记库 | Academic Notes
 theme:
   name: material
   language: zh
+  features:
+    - navigation.tabs       
+    - navigation.sections    
+    - content.code.copy       
+    - i18n.languages          
 
-nav:
-  - 首页: index.md
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - admonition
 
 plugins:
   - search
+  - i18n:
+      default_language: zh
+      languages:
+        zh: 中文
+        en: English
+
+nav:
+  - 首页: index.md
+  - Mathematics (数学类):
+      - 数学分析 (M1): math/analysis.md
+      - 抽象线性代数 (M2): math/algebra.md
+      - 测度论与概率 (M3): math/measure-theory.md
+      - 微分几何 (M4): math/geometry.md
+      - 凸优化 (T4): math/optimization.md
+  - Computer Science (计算机类):
+      - 计算复杂性 (T1): cs/complexity.md
+      - 算法设计 (T2): cs/algorithms.md
+      - 体系结构 (S1): cs/architecture.md
+      - 操作系统内核 (S2): cs/os.md
+      - 编译原理 (S3): cs/compilers.md
+      - 分布式系统 (S5): cs/distributed.md
+  - AI & Robotics (人工智能与机器人):
+      - 信息论 (T3): robotics/information-theory.md
+      - 深度学习理论 (L4): robotics/dl-theory.md
+      - 理论强化学习 (L5): robotics/rl-theory.md
+      - 现代机器人学 (E2): robotics/modern-robotics.md
+      - 具身策略学习 (E5): robotics/embodied-learning.md
