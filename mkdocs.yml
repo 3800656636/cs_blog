@@ -5,10 +5,12 @@ theme:
   name: material
   language: zh
   features:
-    - navigation.tabs
-    - navigation.sections
-    - content.code.copy
-    - i18n.languages
+    - navigation.sections 
+    - navigation.expand   
+    - navigation.indexes  
+    - navigation.top   
+    - content.code.copy 
+    - i18n.languages       
 
 # 开启数学公式
 extra_javascript:
