@@ -39,7 +39,7 @@ plugins:
 nav:
   - 首页: index.md
   - Mathematics (数学类):
-      - 数学分析 (M1): math/analysis.md
+      - 数学分析 (M1):
           - 概览: math/analysis/index.md
           - 高维微积分与微分拓扑: math/analysis/limits.md
           - 测度论与Lebesgue积分: math/analysis/derivatives.md
