@@ -1,13 +1,6 @@
-site_name: My blog
-theme:
-  name: material
-  language: zh
-  features:
-    - navigation.tabs       
-    - navigation.sections    
-    - content.code.copy       
-    - i18n.languages          
 site_name: 学术笔记库 | Academic Notes
+site_url: https://你的用户名.github.io/你的仓库名/
+
 theme:
   name: material
   language: zh
@@ -17,7 +10,7 @@ theme:
     - content.code.copy
     - i18n.languages
 
-# 开启数学公式渲染
+# 开启数学公式
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -29,10 +22,11 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
 
-# 修正后的插件配置
+# 【核心修复点】i18n 必须是这种带有横杠 (-) 的列表格式
 plugins:
   - search
   - i18n:
+      default_language: zh
       languages:
         - locale: zh
           name: 中文
@@ -40,47 +34,7 @@ plugins:
         - locale: en
           name: English
 
-# 你的课程分类导航栏
-nav:
-  - 首页: index.md
-  - Mathematics (数学类):
-      - 数学分析 (M1): math/analysis.md
-      - 抽象线性代数 (M2): math/algebra.md
-      - 测度论与概率 (M3): math/measure-theory.md
-      - 微分几何 (M4): math/geometry.md
-      - 凸优化 (T4): math/optimization.md
-  - Computer Science (计算机类):
-      - 计算复杂性 (T1): cs/complexity.md
-      - 算法设计 (T2): cs/algorithms.md
-      - 体系结构 (S1): cs/architecture.md
-      - 操作系统内核 (S2): cs/os.md
-      - 编译原理 (S3): cs/compilers.md
-      - 分布式系统 (S5): cs/distributed.md
-  - AI & Robotics (人工智能与机器人):
-      - 信息论 (T3): robotics/information-theory.md
-      - 深度学习理论 (L4): robotics/dl-theory.md
-      - 理论强化学习 (L5): robotics/rl-theory.md
-      - 现代机器人学 (E2): robotics/modern-robotics.md
-      - 具身策略学习 (E5): robotics/embodied-learning.md
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-markdown_extensions:
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.superfences
-  - admonition
-
-plugins:
-  - search
-  - i18n:
-      default_language: zh
-      languages:
-        zh: 中文
-        en: English
-
+# 课程目录映射
 nav:
   - 首页: index.md
   - Mathematics (数学类):
