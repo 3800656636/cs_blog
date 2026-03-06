@@ -63,8 +63,7 @@ nav:
       - 具身策略学习 (E5): robotics/embodied-learning.md
   - Algorithm competition (算法竞赛):
       - 初级:
-          - 基本算法:
-              - 前缀和: competition1/prefix_sum.md
-              - 离散化: competition1/discretization.md
-              - 分治法: competition1/divide.md
-              - 贪心法和拟阵: competition1/greedy.md
+          - 前缀和: competition1/prefix_sum.md
+          - 离散化: competition1/discretization.md
+          - 分治法: competition1/divide.md
+          - 贪心法和拟阵: competition1/greedy.md
