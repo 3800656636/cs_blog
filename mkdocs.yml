@@ -1,4 +1,4 @@
-site_name: 学术笔记库 | Academic Notes
+site_name: 笔记库 | Academic Notes
 
 theme:
   name: material
@@ -9,7 +9,7 @@ theme:
     - navigation.indexes  
     - navigation.top   
     - content.code.copy 
-    - i18n.languages       
+    # 注意：i18n.languages 主要是配合 i18n 插件使用的
 
 # 开启数学公式
 extra_javascript:
@@ -22,7 +22,6 @@ markdown_extensions:
       generic: true
   - pymdownx.superfences
   - admonition
-
 
 plugins:
   - search
@@ -64,8 +63,8 @@ nav:
       - 具身策略学习 (E5): robotics/embodied-learning.md
   - Algorithm competition (算法竞赛):
       - 初级:
-          -基本算法:
-              -前缀和:competition1/prefix_sum.md
-              -离散化:competition1/discretization.md
-              -分治法:competition1/divide.md
-              -贪心法和拟阵:competition1/greedy.md
+          - 基本算法:
+              - 前缀和: competition1/prefix_sum.md
+              - 离散化: competition1/discretization.md
+              - 分治法: competition1/divide.md
+              - 贪心法和拟阵: competition1/greedy.md
