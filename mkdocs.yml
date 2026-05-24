@@ -1,57 +1,46 @@
 site_name: 笔记库 | Academic Notes
-
 theme:
   name: material
   language: zh
   features:
-    - navigation.sections 
-    - navigation.expand   
-    - navigation.indexes  
-    - navigation.top   
-    - content.code.copy 
-    # 注意：i18n.languages 主要是配合 i18n 插件使用的
-
-# 开启数学公式
+  - navigation.sections
+  - navigation.expand
+  - navigation.indexes
+  - navigation.top
+  - content.code.copy
 extra_javascript:
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
+- javascripts/mathjax.js
+- https://polyfill.io/v3/polyfill.min.js?features=es6
+- https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 markdown_extensions:
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.superfences
-  - admonition
-
+- pymdownx.arithmatex:
+    generic: true
+- pymdownx.superfences
+- admonition
 plugins:
-  - search
-  - i18n:
-      default_language: zh
-      languages:
-        - locale: zh
-          name: 中文
-          default: true
-        - locale: en
-          name: English
-
-# 课程目录映射
-
+- search
+- i18n:
+    default_language: zh
+    languages:
+    - locale: zh
+      name: 中文
+      default: true
+    - locale: en
+      name: English
 nav:
-  - competition1:
-      - 第2章 为什么我们要“离散化”？: competition1/discretization.md
-      - 从“拆”开始: competition1/divide.md
-      - 贪心：从直觉到拟阵: competition1/greedy.md
-      - prefix_sum: competition1/prefix_sum.md
-  - cs:
-      - gnn:
-          - 节点嵌入:
-              - 1: cs/gnn/节点嵌入/1.md
-  - math:
-      - analysis:
-          - real_analysis:
-              - 1: math/analysis/real_analysis/1.md
-          - index: math/analysis/index.md
-  - DL Book Notations: dlbook-notations.md
-  - index: index.md
-  - Styling Syntaxes: styling-syntaxes.md
-  - Tags: tags.md
+- 首页: index.md
+- 标签: tags.md
+- 深度学习符号: dlbook-notations.md
+- 样式语法: styling-syntaxes.md
+- Mathematics (数学类):
+  - 实分析 (M2):
+    - 高维微积分与微分几何: math/analysis/real_analysis/1.md
+- Computer Science (计算机类):
+  - 图神经网络:
+    - 节点嵌入: posts/节点嵌入_1.md
+- Algorithm competition (算法竞赛):
+  - 初级:
+    - 前缀和: competition1/prefix_sum.md
+    - 离散化: competition1/discretization.md
+    - 分治法: competition1/divide.md
+    - 贪心法和拟阵: competition1/greedy.md
