@@ -1,0 +1,1650 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5_1/">
+      
+      
+        <link rel="next" href="../../competition1/prefix_sum/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/posts/%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5%E8%AE%BA%E6%96%87%EF%BC%88%E4%B8%89%E7%AF%87%EF%BC%89/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>节点嵌入论文（三篇） - 笔记库 | Academic Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deepwalknode2vec-netmf" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="笔记库 | Academic Notes" class="md-header__button md-logo" aria-label="笔记库 | Academic Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            笔记库 | Academic Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              节点嵌入论文（三篇）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/posts/%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5%E8%AE%BA%E6%96%87%EF%BC%88%E4%B8%89%E7%AF%87%EF%BC%89/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="笔记库 | Academic Notes" class="md-nav__button md-logo" aria-label="笔记库 | Academic Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    笔记库 | Academic Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    标签
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dlbook-notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度学习符号
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../styling-syntaxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    样式语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics (数学类)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mathematics (数学类)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实分析 (M2)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实分析 (M2)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/analysis/real_analysis/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    测度论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最优传输（M1)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    最优传输（M1)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%AE%80%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science (计算机类)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science (计算机类)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图神经网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图神经网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点嵌入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点嵌入论文（三篇）
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点嵌入论文（三篇）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 图节点嵌入的基本框架
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deepwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DeepWalk：把图当作语言模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. DeepWalk：把图当作语言模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 随机游走生成语料
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-skip-gram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Skip-gram 学习节点表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 整体流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-node2vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. node2vec：有偏随机游走与结构探索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. node2vec：有偏随机游走与结构探索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 有偏转移概率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 算法流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-deepwalk-node2vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 从 DeepWalk 到 node2vec
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-netmf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. NetMF：统一为矩阵分解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. NetMF：统一为矩阵分解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心等价性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 与谱图理论的联系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-netmf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 NetMF 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 统一视角的意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm competition (算法竞赛)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm competition (算法竞赛)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    初级
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    初级
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/prefix_sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前缀和
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/discretization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/divide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分治法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪心法和拟阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 图节点嵌入的基本框架
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deepwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DeepWalk：把图当作语言模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. DeepWalk：把图当作语言模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 随机游走生成语料
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-skip-gram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Skip-gram 学习节点表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 整体流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-node2vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. node2vec：有偏随机游走与结构探索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. node2vec：有偏随机游走与结构探索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 有偏转移概率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 算法流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-deepwalk-node2vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 从 DeepWalk 到 node2vec
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-netmf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. NetMF：统一为矩阵分解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. NetMF：统一为矩阵分解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 核心等价性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 与谱图理论的联系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-netmf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 NetMF 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 统一视角的意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="deepwalknode2vec-netmf">图嵌入方法：DeepWalk、node2vec 与 NetMF</h1>
+<p>围绕基于随机游走的图表示学习，介绍三种紧密关联的方法：DeepWalk、node2vec 以及将它们统一为矩阵分解的 NetMF。目标是将图中的节点映射到低维向量空间，使向量之间的相似性能够反映原始图的结构特征。</p>
+<h2 id="1">1. 图节点嵌入的基本框架</h2>
+<p>许多图机器学习任务需要将节点表示为固定维度的实向量。理想情况下，这些向量应当保持图中节点间的邻域关系。形式化地说，我们希望学习一个映射
+[
+f: v \in V \rightarrow \mathbb{R}^d
+]
+使得相似节点在向量空间中彼此接近。</p>
+<p>早期方法依赖手工构造的特征，例如节点度数、PageRank 值、聚类系数或谱嵌入。这些方法表达能力有限，迁移到大规模图时面临困难。基于随机游走的方法通过自动采样图结构并将其输入语言模型，实现了更灵活的表征学习。</p>
+<p>一个共同的建模思路是将问题表述为最大化邻域概率。给定节点 <span class="arithmatex">\(u\)</span> 的向量表示 <span class="arithmatex">\(f(u)\)</span>，我们希望它能很好地“解释”其邻域节点集合 <span class="arithmatex">\(NS(u)\)</span>，即最大化
+[
+\max_f \sum_{u \in V} \log P(NS(u) \mid f(u)).
+]
+为了简化模型，通常引入两个假设：</p>
+<ul>
+<li><strong>条件独立性</strong>：给定中心节点 <span class="arithmatex">\(u\)</span>，其邻域中各节点的出现相互独立。
+[
+P(NS(u) \mid f(u)) = \prod_{n_i \in NS(u)} P(n_i \mid f(u)).
+]</li>
+<li><strong>对称性与 softmax 建模</strong>：节点间的关系用向量内积表示相似度，并通过 softmax 转化为概率。
+[
+P(n_i \mid f(u)) = \frac{\exp(f(n_i) \cdot f(u))}{\sum_{v \in V} \exp(f(v) \cdot f(u))}.
+]</li>
+</ul>
+<p>代入后得到的优化目标为
+[
+\max_f \sum_{u \in V} \left[ - \log Z_u + \sum_{n_i \in NS(u)} f(n_i) \cdot f(u) \right],
+]
+其中归一化项 <span class="arithmatex">\(Z_u = \sum_{v \in V} \exp(f(v) \cdot f(u))\)</span>。直接计算该归一化项需要遍历全部 <span class="arithmatex">\(|V|\)</span> 个节点，代价极高。实际优化中采用<strong>负采样（negative sampling）</strong> 来近似，每次只采样少量负样本，避免对全节点求和。这一技巧来自 word2vec，也是后续方法可扩展的关键。</p>
+<h2 id="2-deepwalk">2. DeepWalk：把图当作语言模型</h2>
+<p>DeepWalk 的核心思想是将图中的随机游走序列视为自然语言中的句子，把节点当作单词，然后借助 Skip-gram 模型学习节点的向量表示。</p>
+<h3 id="21">2.1 随机游走生成语料</h3>
+<p>从图中每个节点开始，进行若干次随机游走。每次游走从起点 <span class="arithmatex">\(u\)</span> 开始，每一步均匀随机地选择一个邻居并前进，游走长度固定为 <span class="arithmatex">\(l\)</span>。这样得到的一条路径
+[
+c_0 = u, c_1, c_2, \dots, c_l
+]
+称为一条随机游走序列。对每个节点重复 <span class="arithmatex">\(r\)</span> 次，收集得到的所有序列构成一个“语料库”。这个过程相当于对图的局部结构进行采样：经常共现在同一条游走路径中的节点，倾向于在图中处于相近的社区或扮演相似的角色。</p>
+<h3 id="22-skip-gram">2.2 Skip-gram 学习节点表示</h3>
+<p>Skip-gram 的目标是，给定中心节点，预测其上下文窗口内的邻居节点。在 DeepWalk 中，上下文窗口大小记为 <span class="arithmatex">\(k\)</span>。对于语料中出现的每个中心节点 <span class="arithmatex">\(u\)</span> 及其窗口内的邻居 <span class="arithmatex">\(v\)</span>，我们希望最大化
+[
+\log P(v \mid u).
+]
+利用前面描述的 softmax 定义和负采样技术，目标函数转化为
+[
+\log \sigma(u \cdot v) + \sum_{j=1}^K \log \sigma(-u \cdot v_j),
+]
+其中 <span class="arithmatex">\(\sigma\)</span> 为 sigmoid 函数，<span class="arithmatex">\(v_j\)</span> 是从噪声分布中采样的负样本节点。通过随机梯度下降优化该目标，最终得到所有节点的嵌入向量。</p>
+<h3 id="23">2.3 整体流程</h3>
+<p>算法步骤可概括为：
+1. 对每个节点 <span class="arithmatex">\(u\)</span>，重复 <span class="arithmatex">\(r\)</span> 次：生成长度为 <span class="arithmatex">\(l\)</span> 的随机游走，加入语料。
+2. 在生成的游走语料上训练 Skip-gram 模型。
+3. 输出学习到的节点嵌入向量。</p>
+<p>DeepWalk 之所以有效，在于随机游走将高阶邻接关系展开为线性序列，而 Skip-gram 则通过共现统计将这种结构压缩到低维向量中。本质上，它是在隐式地分解一个与随机游走转移概率相关的矩阵。然而，标准的随机游走无法区分不同类型的结构相似性，这引出了后续的改进方法。</p>
+<h2 id="3-node2vec">3. node2vec：有偏随机游走与结构探索</h2>
+<p>DeepWalk 的随机游走在选择下一步时是均匀的，相当于混合采集两种信息：<strong>同质性</strong>（相邻节点相似）和<strong>结构等价性</strong>（处于相似结构位置的节点相似）。实际图分析中，这两者对应不同的需求。例如，广度优先搜索（BFS）倾向捕捉局部邻域的同质性，而深度优先搜索（DFS）更能反映节点在全局网络中的角色。node2vec 通过设计有偏随机游走，引入两个参数来灵活控制游走行为。</p>
+<h3 id="31">3.1 有偏转移概率</h3>
+<p>假设当前路径片段为 <span class="arithmatex">\(t \rightarrow v\)</span>，现在要从 <span class="arithmatex">\(v\)</span> 决定下一步走到 <span class="arithmatex">\(x\)</span>。定义未归一化的转移倾向 <span class="arithmatex">\(\pi_{vx}\)</span> 如下：
+[
+\pi_{vx} = 
+\begin{cases}
+\frac{1}{p} &amp; \text{如果 } d_{tx}=0 \;\text{(回到上一步节点 } t\text{)}\
+1 &amp; \text{如果 } d_{tx}=1 \;\text{(走到与 } t \text{ 直接相连的节点)}\
+\frac{1}{q} &amp; \text{如果 } d_{tx}=2 \;\text{(走到与 } t \text{ 距离为2的节点)}
+\end{cases}
+]
+其中 <span class="arithmatex">\(d_{tx}\)</span> 表示节点 <span class="arithmatex">\(t\)</span> 和 <span class="arithmatex">\(x\)</span> 之间的最短路径距离。再通过归一化得到实际转移概率：
+[
+P(c_i = x \mid c_{i-1}=v) = \frac{\pi_{vx}}{\sum_{y \in N(v)} \pi_{vy}}.
+]</p>
+<p>参数含义：
+- <strong>返回参数 <span class="arithmatex">\(p\)</span></strong>：控制返回已访问节点的概率。<span class="arithmatex">\(p\)</span> 较大时，游走不易回溯，趋向探索新区域；<span class="arithmatex">\(p\)</span> 较小时，游走倾向于局部徘徊。
+- <strong>进出参数 <span class="arithmatex">\(q\)</span></strong>：控制游走是偏向 DFS 还是 BFS。<span class="arithmatex">\(q &gt; 1\)</span> 时，倾向于靠近 <span class="arithmatex">\(t\)</span> 的节点，类似 BFS，捕捉同质性；<span class="arithmatex">\(q &lt; 1\)</span> 时，倾向于远离 <span class="arithmatex">\(t\)</span> 的节点，类似 DFS，捕捉结构等价性。</p>
+<h3 id="32">3.2 算法流程</h3>
+<p>node2vec 算法的整体框架与 DeepWalk 类似，但游走生成部分使用了有偏随机游走。首先根据输入图 <span class="arithmatex">\(G\)</span> 和参数 <span class="arithmatex">\(p,q\)</span> 计算转移倾向 <span class="arithmatex">\(\pi\)</span>，构建一个带权重的有向图 <span class="arithmatex">\(G'\)</span>。然后对每个节点，以 <span class="arithmatex">\(G'\)</span> 为基础生成 <span class="arithmatex">\(r\)</span> 条长度为 <span class="arithmatex">\(l\)</span> 的有偏游走。最后同样在游走语料上通过 Skip-gram 学习嵌入。</p>
+<p>在采样下一节点时，node2vec 使用<strong>别名采样（alias sampling）</strong>，将离散分布的采样复杂度降至 <span class="arithmatex">\(O(1)\)</span>，比传统的二分查找 <span class="arithmatex">\(O(\log n)\)</span> 更快，能高效处理大规模图中大量游走的生成需求。</p>
+<h3 id="33-deepwalk-node2vec">3.3 从 DeepWalk 到 node2vec</h3>
+<p>DeepWalk 可以看作 node2vec 在 <span class="arithmatex">\(p=1, q=1\)</span> 时的特例。通过调整 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span>，node2vec 使学习到的嵌入能够偏重同质性或结构等价性，在不同类型的预测任务中表现更好。然而，这些方法背后的理论本质仍然是隐式的，直到 NetMF 将其统一为明确的矩阵分解形式。</p>
+<h2 id="4-netmf">4. NetMF：统一为矩阵分解</h2>
+<p>基于随机游走和 Skip-gram 的方法虽然有效，但理论解释长期缺失：为什么这些操作能够产生有意义的图嵌入？2018 年发表的 NetMF 论文给出了答案：DeepWalk、LINE、node2vec 等算法本质上都是在隐式地分解某个由图的转移概率构成的闭式矩阵。</p>
+<h3 id="41">4.1 核心等价性</h3>
+<p>考虑一个无向连通图 <span class="arithmatex">\(G=(V,E)\)</span>，邻接矩阵 <span class="arithmatex">\(A\)</span>，度矩阵 <span class="arithmatex">\(D\)</span>，转移概率矩阵 <span class="arithmatex">\(P=D^{-1}A\)</span>，图的体积 <span class="arithmatex">\(\text{vol}(G)=\sum_i d_i\)</span>。设 Skip-gram 的上下文窗口大小为 <span class="arithmatex">\(T\)</span>，负采样数为 <span class="arithmatex">\(b\)</span>。</p>
+<p>论文证明，当随机游走长度趋于无穷且使用负采样时，DeepWalk 隐式分解的矩阵 <span class="arithmatex">\(M\)</span> 可写为：
+[
+M = \log \left( \frac{\text{vol}(G)}{b} \left( \frac{1}{T} \sum_{r=1}^T P^r \right) D^{-1} \right).
+]
+矩阵元素 <span class="arithmatex">\(M_{ij}\)</span> 表示节点 <span class="arithmatex">\(i\)</span> 与 <span class="arithmatex">\(j\)</span> 的关联强度，它综合了 <span class="arithmatex">\(T\)</span> 步内从 <span class="arithmatex">\(i\)</span> 到 <span class="arithmatex">\(j\)</span> 的平均转移概率，并通过度矩阵做了归一化。该形式与自然语言处理中的点间互信息（PMI）矩阵高度相似。</p>
+<p>类似地，LINE 的二阶邻近目标等价于分解
+[
+M_{\text{LINE}} = \log \left( \frac{\text{vol}(G)}{b} P D^{-1} \right),
+]
+这正是 DeepWalk 在窗口大小 <span class="arithmatex">\(T=1\)</span> 时的特例。对于采用二阶随机游走的 node2vec，其等价矩阵涉及由 <span class="arithmatex">\(p,q\)</span> 参数化后的二阶转移张量，但同样是某个闭式矩阵的分解。</p>
+<h3 id="42">4.2 与谱图理论的联系</h3>
+<p>进一步，可以将 DeepWalk 矩阵写成对称形式：
+[
+S = \frac{\text{vol}(G)}{b} D^{-1/2} \left( \frac{1}{T} \sum_{r=1}^T (D^{-1/2} A D^{-1/2})^r \right) D^{-1/2}.
+]
+矩阵 <span class="arithmatex">\(D^{-1/2} A D^{-1/2}\)</span> 正是归一化邻接矩阵，其特征值分解可以联系到归一化图拉普拉斯 <span class="arithmatex">\(L = I - D^{-1/2} A D^{-1/2}\)</span>。中间的求和项 <span class="arithmatex">\(\frac{1}{T} \sum_{r=1}^T \Lambda^r\)</span> 相当于一个低通滤波器：随机游走的高阶幂次使较小特征值（图的高频噪声）迅速衰减，而保留反映社区结构的大特征值。因此，DeepWalk 等算法本质上是隐式地对图的归一化拉普拉斯矩阵进行低通谱变换，从而保留了宏观的拓扑相似性。</p>
+<h3 id="43-netmf">4.3 NetMF 算法</h3>
+<p>既然这些方法都在隐式分解矩阵，那么可以直接显式计算该矩阵并进行分解，从而避免随机采样的不稳定。NetMF 的做法是：
+1. 构建目标矩阵 <span class="arithmatex">\(M\)</span>，直接计算
+[
+M = \log \left( \max \left( \frac{\text{vol}(G)}{b T} \sum_{r=1}^T P^r D^{-1}, 1 \right) \right).
+]
+截断小于 1 的值是为了保证对数非负。
+2. 对 <span class="arithmatex">\(M\)</span> 进行奇异值分解（SVD），保留前 <span class="arithmatex">\(d\)</span> 个奇异值和奇异向量，作为节点的低维嵌入。</p>
+<p>对于大规模图，直接计算矩阵幂和存储稠密矩阵代价过高。NetMF 提出近似方案：利用归一化邻接矩阵的稀疏性，通过 Arnoldi 算法求出前 <span class="arithmatex">\(h\)</span>（<span class="arithmatex">\(h \ll n\)</span>）个特征对 <span class="arithmatex">\(\{(\lambda_i, u_i)\}\)</span>，然后近似重构求和项：
+[
+\sum_{r=1}^T P^r D^{-1} \approx D^{-1/2} \left( U_h \left( \frac{1}{T} \sum_{r=1}^T \Lambda_h^r \right) U_h^\top \right) D^{-1/2}.
+]
+这大幅降低了时间和空间开销，使算法能够应用到较大规模的图上。</p>
+<h3 id="44">4.4 统一视角的意义</h3>
+<p>NetMF 的工作将看似割裂的“随机游走+深度学习”方法纳入经典的谱图理论与矩阵分解框架，消除了这些算法的黑盒感。它也解释了为何 DeepWalk 和 node2vec 能有效保持图的社区结构。从应用角度看，显式矩阵分解无需采样，结果更稳定；但受限于稠密矩阵存储，扩展到超大规模图时仍需要进一步的稀疏化技术（如后续的 NetSMF）。在理论层面，这一统一为图神经网络的设计提供了清晰的基础。</p>
+<h2 id="5">5. 总结</h2>
+<p>DeepWalk 开创性地将随机游走和 Skip-gram 引入图表示学习，将图结构转化为线性序列进行建模。node2vec 通过引入返回参数 <span class="arithmatex">\(p\)</span> 和进出参数 <span class="arithmatex">\(q\)</span> 实现有偏随机游走，可以更精细地捕捉同质性与结构等价性。NetMF 则从理论上证明，这些方法本质上都在隐式地分解一个由图的转移概率决定的闭式矩阵，并与谱图理论建立了直接联系。</p>
+<p>这三种方法构成了一个递进的理论体系：从启发式采样到可控探索，再到统一的矩阵分解视角。理解它们的原理和联系，有助于把握图嵌入方法的发展脉络，并为学习后续更复杂的图神经网络奠定基础。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

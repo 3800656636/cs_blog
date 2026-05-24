@@ -1,0 +1,1470 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../discretization/">
+      
+      
+        <link rel="next" href="../greedy/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/competition1/divide/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>分治法 - 笔记库 | Academic Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="笔记库 | Academic Notes" class="md-header__button md-logo" aria-label="笔记库 | Academic Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            笔记库 | Academic Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              分治法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/competition1/divide/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="笔记库 | Academic Notes" class="md-nav__button md-logo" aria-label="笔记库 | Academic Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    笔记库 | Academic Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    标签
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dlbook-notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度学习符号
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../styling-syntaxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    样式语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics (数学类)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mathematics (数学类)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实分析 (M2)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实分析 (M2)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/analysis/real_analysis/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    测度论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最优传输（M1)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    最优传输（M1)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../posts/%E7%AE%80%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science (计算机类)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science (计算机类)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图神经网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图神经网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../posts/%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点嵌入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../posts/%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5%E8%AE%BA%E6%96%87%EF%BC%88%E4%B8%89%E7%AF%87%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点嵌入论文（三篇）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm competition (算法竞赛)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm competition (算法竞赛)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    初级
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    初级
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefix_sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前缀和
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../discretization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分治法
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分治法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 最大值：一个不需要“拆”的问题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 最大值与最小值：信息的复用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 逆序对
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 跨越逆序对的计算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 快速幂：改变问题的结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 分治：思想的浮现
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 本章遗留的思考题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪心法和拟阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 最大值：一个不需要“拆”的问题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 最大值与最小值：信息的复用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 逆序对
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 跨越逆序对的计算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 快速幂：改变问题的结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 分治：思想的浮现
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 本章遗留的思考题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">从“拆”开始</h1>
+<p>很多教材会这样开始一章：分治是一种算法设计范式，它将一个复杂的问题分解成两个或更多的相同或相似的子问题，直到最后子问题可以简单地直接求解……</p>
+<p>但这不是我们学习的方式。没有人是通过背诵定义来理解思想的。思想是在解决问题的困境中，被迫诞生的。</p>
+<p>准备好了吗？我们的第一个问题简单得可笑。</p>
+<h2 id="1">1 最大值：一个不需要“拆”的问题</h2>
+<p><strong>问题</strong>：给你一个数组：<code>A = [5, 2, 6, 1, 3]</code>。请找出其中的最大值。</p>
+<p>几乎所有人脑中闪过的第一个，也是唯一一个念头是：遍历。
+<div class="highlight"><pre><span></span><code><span class="n">max_val</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_val</span><span class="p">:</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</code></pre></div>
+我们需要查看每一个元素，并与当前最大值比较一次。对于 <code>n</code> 个元素，我们进行了 <code>n-1</code> 次比较。</p>
+<p>你可能会想：能不能更快？比如，把数组拆成两半，分别找最大值，然后再比较这两个最大值？</p>
+<p>试试看。拆成两半需要一次比较，但找左边最大值需要 <code>(n/2)-1</code> 次比较，找右边最大值也需要 <code>(n/2)-1</code> 次比较。总次数是 <code>1 + (n/2)-1 + (n/2)-1 = n-1</code> 次，和遍历一样多。不仅如此，拆分会带来额外的开销，比如管理子数组的边界。在这个问题里，“拆”没有带来任何好处。</p>
+<p><strong>启示</strong>：并非所有问题都能从“拆分”中获益。当解决问题的必要信息无法被“复用”或“规避”时，线性遍历就是最优解。</p>
+<p>这给我们提了个醒：“拆”本身不是目的，它必须能带来效率上的提升。那么，什么样的问题，“拆”了会更快呢？我们把问题稍稍改变一下。</p>
+<h2 id="2">2 最大值与最小值：信息的复用</h2>
+<p><strong>新问题</strong>：给你同一个数组：<code>A = [5, 2, 6, 1, 3]</code>。请同时找出其中的最大值和最小值。</p>
+<p><strong>最直接的方法</strong>：我们依然可以遍历：
+1. 初始化 <code>max_val = min_val = A[0]</code>
+2. 对于每个后续元素 <code>x</code>：
+    - 如果 <code>x &gt; max_val</code>，则更新 <code>max_val</code>
+    - 如果 <code>x &lt; min_val</code>，则更新 <code>min_val</code></p>
+<p>对于每个元素，我们进行了2次比较。<code>n</code> 个元素总共是 <code>2(n-1)</code> 次比较。</p>
+<p>你可能会觉得：看起来必须对每个元素做两次比较，这似乎无法避免……真的无法避免吗？</p>
+<p>让我们看看第一个元素 <code>5</code> 和第二个元素 <code>2</code>。我们比较它们一次：<code>5 &gt; 2</code>。这次比较告诉我们，<code>5</code> 可能是最大值，<code>2</code> 可能是最小值。在这次比较中，关于“最大值”和“最小值”的信息是同时产生的。我们能不能利用这一点来设计方法？</p>
+<p><strong>一个“奇怪”的策略</strong>：
+1. 将元素两两分组。（如果元素个数是奇数，最后一个元素自成一组，同时作为该组的最大值和最小值）。
+    - 例如：<code>(5,2)</code>, <code>(6,1)</code>, <code>(3)</code>
+2. 在每一组内部进行比较，区分出组内较大者和组内较小者。
+    - <code>(5,2) -&gt;</code> 较大=<code>5</code>，较小=<code>2</code>
+    - <code>(6,1) -&gt;</code> 较大=<code>6</code>，较小=<code>1</code>
+    - <code>(3) -&gt;</code> 较大=<code>3</code>，较小=<code>3</code>
+3. 现在，全局最大值一定在所有“组内较大者”中产生。我们在这 <code>⌈n/2⌉</code> 个候选者中寻找最大值。
+4. 全局最小值一定在所有“组内较小者”中产生。我们在这 <code>⌈n/2⌉</code> 个候选者中寻找最小值。</p>
+<p><strong>复杂度分析</strong>：
+- 组内比较次数：<code>⌊n/2⌋</code> 次。
+- 在 <code>⌈n/2⌉</code> 个较大者中找最大值：<code>⌈n/2⌉ - 1</code> 次比较。
+- 在 <code>⌈n/2⌉</code> 个较小者中找最小值：<code>⌈n/2⌉ - 1</code> 次比较。
+- 总比较次数：<code>⌊n/2⌋ + 2(⌈n/2⌉ - 1)</code>。</p>
+<p>当 <code>n</code> 为偶数时，总次数为 <code>n/2 + 2*(n/2 - 1) = 3n/2 - 2</code>。
+当 <code>n</code> 为奇数时，总次数约为 <code>3n/2 - 2</code>。</p>
+<p>这比 <code>2n-2</code> 次要少！当 <code>n</code> 很大时，我们节省了大约 25% 的比较次数。</p>
+<p><strong>启示</strong>：当我们试图解决一个复合问题（如同时求最大最小值）时，一次聪明的、局部的操作（如两两比较）可以产生用于解决多个子目标的信息。先进行局部处理，再合并结果，可能比全局线性扫描更高效。</p>
+<p>我们隐约摸到了一条路的边缘：先局部解决，再合并。但它的威力似乎仅限于这种“信息复用”的小技巧。它能用来解决真正复杂的问题吗？让我们进入一个更困难的领域。</p>
+<h2 id="3">3 逆序对</h2>
+<p><strong>新问题</strong>：给定数组：<code>A = [3, 1, 4, 2]</code>。定义：如果下标 <code>i &lt; j</code>，但值 <code>A[i] &gt; A[j]</code>，则 <code>(i, j)</code> 构成一个逆序对。请问数组中总共有多少个逆序对？</p>
+<p><strong>例子</strong>：在 <code>[3,1,4,2]</code> 中：
+- <code>(0,1): 3 &gt; 1</code> ✔
+- <code>(0,3): 3 &gt; 2</code> ✔
+- <code>(2,3): 4 &gt; 2</code> ✔
+共有 3 个逆序对。</p>
+<p><strong>最直接的方法（暴力枚举）</strong>：
+<div class="highlight"><pre><span></span><code><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">return</span> <span class="n">count</span>
+</code></pre></div>
+复杂度是 <code>O(n²)</code>。如果 <code>n=100,000</code>，我们需要进行约100亿次比较，这在竞赛中是不可接受的。</p>
+<p>你可能会想：必须比较每一对 <code>(i, j)</code> 吗？看起来是的，因为任何一对都可能构成逆序对。但 <code>O(n²)</code> 太慢了。我们能不能不明确检查所有对，而是通过某种方式“批量”计算它们？</p>
+<p><strong>关键观察：拆开看看</strong>：让我们把数组从中间切开：<code>[3, 1] | [4, 2]</code>。现在，所有的逆序对会出现在哪里？
+1. 左边内部：<code>[3,1]</code> 中有一个逆序对 <code>(3,1)</code>。
+2. 右边内部：<code>[4,2]</code> 中有一个逆序对 <code>(4,2)</code>。
+3. 跨越左右：左边元素与右边元素构成的逆序对。例如 <code>(3,2)</code>。</p>
+<p><strong>一个惊人的递归结构</strong>：如果我们用 <code>count(A)</code> 表示数组 <code>A</code> 的逆序对总数，那么：
+<code>count([3,1,4,2]) = count([3,1]) + count([4,2]) + count_cross([3,1], [4,2])</code>
+其中 <code>count_cross(L, R)</code> 是计算所有左元素大于右元素的对数。</p>
+<p><strong>希望出现了</strong>：<code>count([3,1])</code> 和 <code>count([4,2])</code> 不就是原问题的缩小版吗？我们可以用同样的方法递归计算！现在我们最大的挑战，变成了如何高效计算 <code>count_cross(L, R)</code>。</p>
+<h2 id="4">4 跨越逆序对的计算</h2>
+<p><strong>问题</strong>：假设我们已经递归计算好了左右两半的逆序对数量，并且——这是一个至关重要的假设——我们在递归过程中顺便将左右两半各自排好了序。即：<code>L = [1, 3]</code>, <code>R = [2, 4]</code>。现在，如何计算有多少对 <code>(l, r)</code>，其中 <code>l</code> 来自 <code>L</code>，<code>r</code> 来自 <code>R</code>，且满足 <code>l &gt; r</code>？</p>
+<p><strong>错误的思路</strong>：遍历 <code>L</code> 中每个元素，在 <code>R</code> 中顺序查找有多少个比它小的。这依然是 <code>O(n²)</code> 的。</p>
+<p><strong>关键观察：利用有序性</strong>：因为 <code>L</code> 和 <code>R</code> 都是有序的，我们可以利用归并的过程一次性数出来！</p>
+<p>让我们模拟同时遍历两个有序数组的过程，就像合并它们一样：
+<div class="highlight"><pre><span></span><code>初始化：i 指向 L 开头，j 指向 R 开头，count = 0
+结果数组 res 为空
+while i &lt; len(L) and j &lt; len(R):
+    如果 L[i] &lt;= R[j]:
+        将 L[i] 放入 res，i++
+    否则 (L[i] &gt; R[j]):
+        将 R[j] 放入 res，然后 count += (len(L) - i)，j++
+最后将剩余元素放入 res
+</code></pre></div></p>
+<p><strong>为什么可以这样</strong>？当 <code>L[i] &gt; R[j]</code> 时，由于 <code>L</code> 是升序的，<code>L[i]</code> 及 <code>L</code> 中 <code>i</code> 之后的所有元素都大于 <code>R[j]</code>。因此，对于当前的 <code>R[j]</code>，逆序对数量为 <code>len(L) - i</code>。</p>
+<p><strong>过程演示</strong> (<code>L=[1,3]</code>, <code>R=[2,4]</code>)：
+1. 比较 <code>L[0]=1</code> 和 <code>R[0]=2</code>。<code>1 &lt;= 2</code>，不是逆序。将 <code>1</code> 放入结果，<code>i++</code>。结果 <code>[1]</code>。
+2. 比较 <code>L[1]=3</code> 和 <code>R[0]=2</code>。<code>3 &gt; 2</code>，是逆序。此时 <code>len(L)-i = 2-1 = 1</code>，说明左半部分有1个元素（即 <code>3</code>）大于 <code>2</code>。<code>count += 1</code>。将 <code>2</code> 放入结果，<code>j++</code>。结果 <code>[1,2]</code>。
+3. 比较 <code>L[1]=3</code> 和 <code>R[1]=4</code>。<code>3 &lt;= 4</code>，不是逆序。将 <code>3</code> 放入结果，<code>i++</code>。结果 <code>[1,2,3]</code>。
+4. 将剩余的 <code>4</code> 放入结果。结果 <code>[1,2,3,4]</code>。</p>
+<p>跨越逆序对数量 = 1。加上左内部(1)和右内部(1)，总数为3，正确。</p>
+<p><strong>算法</strong>：
+1. <strong>划分 (Divide)</strong>：将数组平分为左右两半。
+2. <strong>征服 (Conquer)</strong>：递归计算左半部分的逆序对数，并返回排序好的左半部分。
+3. <strong>征服 (Conquer)</strong>：递归计算右半部分的逆序对数，并返回排序好的右半部分。
+4. <strong>合并 (Combine)</strong>：归并左右两个已排序数组。在归并过程中，当从右半部分取元素时，根据上述规则累加跨越逆序对的数量。最终返回排序好的整个数组，以及总逆序对数。</p>
+<p><strong>意外收获</strong>：你可能会惊讶，这个算法在递归计算逆序对的同时，居然把数组排好序了？是的。我们为了解决逆序对问题，被迫采用了“先排序子数组，再高效合并计数”的策略。而这个策略本身，就是一个完整的、高效的排序算法——<strong>归并排序 (Merge Sort)</strong>。</p>
+<p><strong>复杂度分析</strong>：在每一层递归，我们需要线性时间 <code>O(n)</code> 来合并两个已排序的子数组并计数。递归树共有 <code>log₂n</code> 层。因此总时间复杂度为 <code>O(n log n)</code>。我们从 <code>O(n²)</code> 的困境中逃脱了出来。</p>
+<p><strong>核心观察</strong>：对于某些问题（如逆序对），其解可以由子问题的解与一个“合并代价”组合而成。如果这个“合并代价”可以控制在 <code>O(n)</code> 甚至更低，并且子问题规模能显著减小（如减半），那么递归就能将复杂度从多项式级别降至 <code>O(n log n)</code> 级别。“排序”在这里不是目的，而是高效合并子问题答案的必备工具。</p>
+<h2 id="5">5 快速幂：改变问题的结构</h2>
+<p><strong>新问题</strong>：计算 <code>a</code> 的 <code>n</code> 次方，即 <code>a^n</code>，其中 <code>n</code> 是一个非常大的非负整数。</p>
+<p><strong>最直接的方法</strong>：
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">*=</span> <span class="n">a</span>
+</code></pre></div>
+复杂度 <code>O(n)</code>。如果 <code>n</code> 是10亿，这太慢了。</p>
+<p><strong>困境</strong>：乘法必须做 <code>n</code> 次吗？看起来是的，因为 <code>a</code> 要乘以自己 <code>n</code> 次。</p>
+<p>让我们换个角度看。<code>a^8</code> 是什么？是 <code>a*a*a*a*a*a*a*a</code>，需要7次乘法。但它也等于 <code>(a^4)^2</code>。如果我们先算出 <code>a^4</code>，再将其平方，只需要（计算 <code>a^4</code> 的代价）+ 1 次乘法。</p>
+<p><strong>关键观察：指数的递归结构</strong>：<code>a^n</code> 可以基于 <code>a^(n/2)</code> 来构建！
+- 如果 <code>n</code> 是偶数：<code>a^n = (a^(n/2))^2</code>
+- 如果 <code>n</code> 是奇数：<code>a^n = (a^(n/2))^2 * a</code> （这里 <code>n/2</code> 指整数除法，即 <code>⌊n/2⌋</code>）</p>
+<p><strong>算法浮现</strong>：
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fast_pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">half</span> <span class="o">=</span> <span class="n">fast_pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 递归计算子问题</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">half</span> <span class="o">*</span> <span class="n">half</span>      <span class="c1"># 合并：一次乘法</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">half</span> <span class="o">*</span> <span class="n">half</span> <span class="o">*</span> <span class="n">a</span>  <span class="c1"># 合并：两次乘法</span>
+</code></pre></div></p>
+<p><strong>复杂度分析</strong>：每一次递归调用，<code>n</code> 的规模减半。递归树深度为 <code>O(log n)</code>。每一层只需要常数次（1或2次）乘法。因此总复杂度为 <code>O(log n)</code>。这是一个质的飞跃。</p>
+<p><strong>核心观察</strong>：分治不一定是对物理序列（如数组）的拆分。它可以是对问题规模本身的递归分解。通过将指数 <code>n</code> 分解为 <code>n/2</code> 的子问题，并将子问题的解以低廉的代价（平方）合并，我们彻底改变了问题的计算结构，从线性链变成了对数深度的递归树。</p>
+<h2 id="6">6 分治：思想的浮现</h2>
+<p>通过以上几个问题的挣扎、尝试和发现，我们现在可以自己来总结，究竟什么是“分治”，以及它为什么有效。</p>
+<p><strong>分治算法的通用模式</strong>：
+1. <strong>分解 (Divide)</strong>：将原问题分解成若干个规模较小、形式相同的独立子问题。
+2. <strong>解决 (Conquer)</strong>：递归地解决这些子问题。如果子问题足够小，则直接求解。
+3. <strong>合并 (Combine)</strong>：将子问题的解合并，形成原问题的解。</p>
+<p><strong>分治有效的关键</strong>：
+- <strong>子问题独立性</strong>：子问题之间不应有复杂的交叉影响（如逆序对中的跨越计数被抽离到合并阶段处理）。
+- <strong>合并的高效性</strong>：合并步骤的代价必须显著小于直接解决原问题的代价。这是降低复杂度的核心。
+    - 归并排序：合并两个有序数组，代价 <code>O(n)</code>。
+    - 逆序对：在合并过程中计数，代价 <code>O(n)</code>。
+    - 快速幂：将子问题的解平方，代价 <code>O(1)</code>。
+- <strong>子问题规模的缩减</strong>：子问题的规模必须明显小于原问题（通常是常数比例，如1/2），才能实现递归层数的对数化，从而降低复杂度。</p>
+<p><strong>关于“更快”</strong>：分治并不总是更快。汉诺塔问题（<code>T(n)=2T(n-1)+1</code>）本身具有指数级的最优解。分治在这里清晰地揭示了问题的本质结构，但并未降低其固有的复杂度。分治是一种揭示并利用问题内在结构的思维方式，其效果取决于结构本身。</p>
+<p><strong>回到最初的疑问</strong>：为什么“把问题拆开”有时会更快？现在我们可以回答：当一个问题可以被拆解成若干独立的、规模更小的相同问题，并且这些子问题的解能够以低于原问题复杂度的代价被重新组合时，“拆开”就能通过将大量工作下放到更小规模的递归调用中，并通过对数深度的递归树来摊薄合并的代价，从而实现整体效率的提升。</p>
+<p>这，就是分治。</p>
+<h2 id="7">7 本章遗留的思考题</h2>
+<ol>
+<li><strong>快速排序</strong>也是一个经典的分治算法。它的“划分”步骤是选择一个主元，将数组分为“小于主元”和“大于主元”两部分。请分析，它的“合并”步骤是什么？为什么在最坏情况下它的复杂度会退化到 <code>O(n²)</code>？</li>
+<li><strong>最近点对问题</strong>：在二维平面上给出 <code>n</code> 个点，找出距离最近的一对点。一个暴力解法是 <code>O(n²)</code>。如何设计一个基于分治的 <code>O(n log n)</code> 算法？关键挑战在于如何高效地合并左右两半的解，即处理“一个点在左半区，一个点在右半区”的情况。</li>
+<li>你能想到现实生活或计算机科学中，还有哪些问题天然具有“可分治”的结构？</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

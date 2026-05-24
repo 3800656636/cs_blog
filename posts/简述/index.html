@@ -1,0 +1,1961 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../math/analysis/real_analysis/1/">
+      
+      
+        <link rel="next" href="../%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5_1/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/posts/%E7%AE%80%E8%BF%B0/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>简述 - 笔记库 | Academic Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="笔记库 | Academic Notes" class="md-header__button md-logo" aria-label="笔记库 | Academic Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            笔记库 | Academic Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              简述
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/posts/%E7%AE%80%E8%BF%B0/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="笔记库 | Academic Notes" class="md-nav__button md-logo" aria-label="笔记库 | Academic Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    笔记库 | Academic Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    标签
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dlbook-notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度学习符号
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../styling-syntaxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    样式语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics (数学类)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mathematics (数学类)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实分析 (M2)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实分析 (M2)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/analysis/real_analysis/1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    测度论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最优传输（M1)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    最优传输（M1)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简述
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        课程概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 最优传输及其在深度学习、数字图像与计算机视觉中的应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 最优传输及其在深度学习、数字图像与计算机视觉中的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 最优传输问题的数学表述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 现代应用图景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 流形分布假说与流形观点下的去噪
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 流形分布假说与流形观点下的去噪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-manifold-distribution-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 流形分布假说 (Manifold Distribution Hypothesis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 流形视角的图像去噪
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 模式混合与奇异性：“半红半蓝眼”与“异瞳”人像生成的几何解释
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 模式混合与奇异性：“半红半蓝眼”与“异瞳”人像生成的几何解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mode-mixture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 模式混合（Mode Mixture）的产生机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 奇异点集与“异瞳”人像的生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-manifold-embedding-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 流形嵌入定理 (Manifold Embedding Theorem)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-whitney" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Whitney 嵌入定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Whitney 嵌入定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 定理陈述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 证明思想简述
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-urysohn-urysohns-lemma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Urysohn 引理 (Urysohn's Lemma)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Urysohn 引理 (Urysohn&#39;s Lemma)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 定理陈述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 在分类与模式识别中的物理意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-universal-approximation-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 万能逼近定理 (Universal Approximation Theorem)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 万能逼近定理 (Universal Approximation Theorem)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-cybenko-1989-hornik-1991" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 定理陈述 (Cybenko 1989 / Hornik 1991)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 深度学习的几何理论闭环 (大一统视角)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ae-ot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 奇异集合与 AE-OT 模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 奇异集合与 AE-OT 模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ae-ot-manifold-decoupling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 AE-OT 的双阶段架构 (Manifold Decoupling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 奇异集合的判定与避免模式混合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        思考题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science (计算机类)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science (计算机类)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图神经网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图神经网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点嵌入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%8A%82%E7%82%B9%E5%B5%8C%E5%85%A5%E8%AE%BA%E6%96%87%EF%BC%88%E4%B8%89%E7%AF%87%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    节点嵌入论文（三篇）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm competition (算法竞赛)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm competition (算法竞赛)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    初级
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    初级
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/prefix_sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前缀和
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/discretization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/divide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分治法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../competition1/greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贪心法和拟阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        课程概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 最优传输及其在深度学习、数字图像与计算机视觉中的应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 最优传输及其在深度学习、数字图像与计算机视觉中的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 最优传输问题的数学表述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 现代应用图景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 流形分布假说与流形观点下的去噪
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 流形分布假说与流形观点下的去噪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-manifold-distribution-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 流形分布假说 (Manifold Distribution Hypothesis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 流形视角的图像去噪
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 模式混合与奇异性：“半红半蓝眼”与“异瞳”人像生成的几何解释
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 模式混合与奇异性：“半红半蓝眼”与“异瞳”人像生成的几何解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mode-mixture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 模式混合（Mode Mixture）的产生机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 奇异点集与“异瞳”人像的生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-manifold-embedding-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 流形嵌入定理 (Manifold Embedding Theorem)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-whitney" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Whitney 嵌入定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Whitney 嵌入定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 定理陈述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 证明思想简述
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-urysohn-urysohns-lemma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Urysohn 引理 (Urysohn's Lemma)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Urysohn 引理 (Urysohn&#39;s Lemma)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 定理陈述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 在分类与模式识别中的物理意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-universal-approximation-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 万能逼近定理 (Universal Approximation Theorem)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 万能逼近定理 (Universal Approximation Theorem)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-cybenko-1989-hornik-1991" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 定理陈述 (Cybenko 1989 / Hornik 1991)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 深度学习的几何理论闭环 (大一统视角)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ae-ot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 奇异集合与 AE-OT 模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 奇异集合与 AE-OT 模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ae-ot-manifold-decoupling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 AE-OT 的双阶段架构 (Manifold Decoupling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 奇异集合的判定与避免模式混合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        思考题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>简述</h1>
+
+<h2 id="_1">课程概述</h2>
+<p>本讲义为“最优传输与流形学习”系列课程的第一课。将从现代深度学习的几何视角出发，探讨<strong>最优传输（Optimal Transport, OT）</strong>与<strong>流形学习（Manifold Learning）</strong>的理论交汇。</p>
+<h2 id="1">1. 最优传输及其在深度学习、数字图像与计算机视觉中的应用</h2>
+<h3 id="11">1.1 最优传输问题的数学表述</h3>
+<p>最优传输问题的核心是如何以最小的代价将一个概率测度变换为另一个概率测度。</p>
+<p>设 <span class="arithmatex">\((\Omega, \mu)\)</span> 为源概率空间，<span class="arithmatex">\((\Lambda, \nu)\)</span> 为目标概率空间。<strong>Monge 问题</strong>寻找一个可测映射 <span class="arithmatex">\(T: \Omega \to \Lambda\)</span>，满足推前测度（Push-forward Measure）关系 <span class="arithmatex">\(T_\# \mu = \nu\)</span>，即对于任意可测集 <span class="arithmatex">\(B \subset \Lambda\)</span>，有 <span class="arithmatex">\(\mu(T^{-1}(B)) = \nu(B)\)</span>，并最小化总传输成本：
+$$ \inf_{T_# \mu = \nu} \int_{\Omega} c(x, T(x)) d\mu(x) $$
+其中 <span class="arithmatex">\(c(x, y)\)</span> 为距离代价函数。当 <span class="arithmatex">\(c(x, y) = \frac{1}{2}\|x-y\|^2\)</span> 且测度绝对连续时，根据 <strong>Brenier 定理</strong>，存在唯一的最优传输映射 <span class="arithmatex">\(T\)</span>，且该映射必定是某个凸函数 <span class="arithmatex">\(u: \Omega \to \mathbb{R}\)</span>（称为 <strong>Brenier 势能函数</strong>）的梯度：
+$$ T(x) = \nabla u(x) $$</p>
+<h3 id="12">1.2 现代应用图景</h3>
+<p>最优传输理论为处理数据分布之间的对齐、变换和距离度量提供了天然的几何工具，在以下领域扮演着核心角色：</p>
+<ul>
+<li><strong>深度生成模型：</strong> 在生成对抗网络（GAN）中，用 <strong>Wasserstein 距离</strong>（即 <span class="arithmatex">\(L_1\)</span> 或 <span class="arithmatex">\(L_2\)</span> 最优传输代价）替代传统的 JS 散度，能够有效解决梯度消失问题，提供连续且有意义的几何测度度量（如 WGAN, WAE）。</li>
+<li><strong>数字图像处理（色彩迁移与纹理合成）：</strong> 色彩迁移任务可建模为源图像色彩概率分布 <span class="arithmatex">\(\mu\)</span> 到目标图像色彩概率分布 <span class="arithmatex">\(\nu\)</span> 的最优传输。通过求解传输映射 <span class="arithmatex">\(T\)</span>，可实现像素级无噪、平滑的色彩风格对齐。</li>
+<li><strong>计算机视觉（领域自适应与三维匹配）：</strong> 在领域自适应（Domain Adaptation）中，通过最小化源域和目标域特征分布之间的 Wasserstein 距离，实现特征空间的对齐；在三维点云配准（Shape Matching）中，OT 被用于建立两组点云之间的最优对应关系。</li>
+</ul>
+<hr />
+<h2 id="2">2. 流形分布假说与流形观点下的去噪</h2>
+<h3 id="21-manifold-distribution-hypothesis">2.1 流形分布假说 (Manifold Distribution Hypothesis)</h3>
+<p>流形分布假说是现代流形学习与深度学习的理论基石：</p>
+<blockquote>
+<p><strong>假说：</strong> 某一类自然界真实存在的高维数据（如面部图像、语音信号），其概率分布 <span class="arithmatex">\(\mu\)</span> 实际上集中在嵌入在高维欧氏空间 <span class="arithmatex">\(\mathbb{R}^D\)</span> 中的一个低维流形 <span class="arithmatex">\(\mathcal{M}\)</span> （其本征维度 <span class="arithmatex">\(d \ll D\)</span>）或其邻域内。</p>
+</blockquote>
+<p>例如，一张 <span class="arithmatex">\(64 \times 64\)</span> 的灰度人脸图像位于 <span class="arithmatex">\(4096\)</span> 维的配置空间中。然而，由于面部结构的物理约束，所有人脸图像构成了一个本征维度极低（可能仅有几十维）的非线性流形 <span class="arithmatex">\(\mathcal{M} \subset \mathbb{R}^{4096}\)</span>。</p>
+<h3 id="22">2.2 流形视角的图像去噪</h3>
+<p>从流形分布假说出发，图像去噪问题可以获得清晰的几何解释：</p>
+<div class="highlight"><pre><span></span><code>      Noisy Sample (x_noisy \in \mathbb{R}^D)
+             \
+              \  Projection (T)
+               v
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  &lt;- Data Manifold \mathcal{M}
+            x_clean
+</code></pre></div>
+<ol>
+<li><strong>几何投影视点：</strong> 干净的数据点 <span class="arithmatex">\(x_{clean}\)</span> 严格位于流形 <span class="arithmatex">\(\mathcal{M}\)</span> 上。加噪过程等价于给数据加上了一个垂直于流形切空间的扰动：<span class="arithmatex">\(\tilde{x} = x_{clean} + \epsilon\)</span>，使得噪声数据偏离了流形。去噪器的本质是一个非线性投影映射 <span class="arithmatex">\(P: \mathbb{R}^D \to \mathcal{M}\)</span>，将偏离流形的数据点拉回到流形表面。</li>
+<li><strong>最优传输视点：</strong> 设含噪数据的概率分布为 <span class="arithmatex">\(\mu_{noisy}\)</span>，其支撑集（Support）为整个背景空间 <span class="arithmatex">\(\mathbb{R}^D\)</span>；无噪数据的概率分布为 <span class="arithmatex">\(\mu_{clean}\)</span>，其支撑集严格局限于低维流形 <span class="arithmatex">\(\mathcal{M}\)</span> 上。去噪过程即为求解从源分布 <span class="arithmatex">\(\mu_{noisy}\)</span> 到目标分布 <span class="arithmatex">\(\mu_{clean}\)</span> 的最优传输映射 <span class="arithmatex">\(T\)</span>：
+    $$ T_# \mu_{noisy} = \mu_{clean} $$
+    该映射在最小化重构误差（传输代价）的同时，将弥散在全空间的测度精确地浓缩回低维流形上。</li>
+</ol>
+<hr />
+<h2 id="3">3. 模式混合与奇异性：“半红半蓝眼”与“异瞳”人像生成的几何解释</h2>
+<p>生成模型（如传统 GAN 或 VAE）在插值或采样时，常常会生成一些现实中不存在的“荒谬”图像，例如<strong>“一只眼睛一半红一半蓝”</strong>的怪异人像（<strong>模式混合 / 幻觉</strong>）；但有时却能生成看似合理但极其罕见的<strong>“左眼红色、右眼蓝色”</strong>（<strong>异瞳</strong>）人像。这一现象背后有着深刻的最优传输几何解释。</p>
+<h3 id="31-mode-mixture">3.1 模式混合（Mode Mixture）的产生机制</h3>
+<p>假设人脸数据流形上存在两个互不相交的子区域（Modes）：
+*   <strong>模式 <span class="arithmatex">\(\mathcal{A}\)</span>：</strong> 红色瞳孔人像。
+*   <strong>模式 <span class="arithmatex">\(\mathcal{B}\)</span>：</strong> 蓝色瞳孔人像。</p>
+<p>传统的生成模型构造了一个<strong>连续</strong>的生成器（神经网络） <span class="arithmatex">\(G: \mathcal{Z} \to \mathbb{R}^D\)</span>，其中隐空间 <span class="arithmatex">\(\mathcal{Z}\)</span>（如高斯分布的支撑集）是拓扑连通的。</p>
+<p>根据拓扑学中的<strong>介值定理（Intermediate Value Theorem）</strong>，若 <span class="arithmatex">\(z_1, z_2 \in \mathcal{Z}\)</span> 分别映射到模式 <span class="arithmatex">\(\mathcal{A}\)</span> 和模式 <span class="arithmatex">\(\mathcal{B}\)</span>，则连接 <span class="arithmatex">\(z_1\)</span> 与 <span class="arithmatex">\(z_2\)</span> 的任意连续曲线 <span class="arithmatex">\(\gamma(t)\)</span> 在生成器 <span class="arithmatex">\(G\)</span> 下的像 <span class="arithmatex">\(G(\gamma(t))\)</span> 必须是一条连接模式 <span class="arithmatex">\(\mathcal{A}\)</span> 和 <span class="arithmatex">\(\mathcal{B}\)</span> 的连续图像路径。
+在这一路径上，必然存在某些过渡状态。因为生成器被迫用连续映射去覆盖不连通的支撑集，它不得不把隐空间中介于两模式之间的区域，映射到现实中不存在的面部图像上——即产生<strong>“一只眼睛一半红一半蓝”</strong>或瞳孔呈现模糊污浊过渡色的<strong>模式混合（Mode Mixture）</strong>图像。</p>
+<div class="highlight"><pre><span></span><code>隐空间 \mathcal{Z} (连通)             图像空间 \mathbb{R}^D
+   [ z_1 ] -----------------------&gt; [ 模式 A: 红眼 ]
+      |                                  |
+   [ z_mid ] --(连续生成器 G 迫使过渡)--&gt; [ 模式混合: 半红半蓝眼 (Hallucination) ]
+      |                                  |
+   [ z_2 ] -----------------------&gt; [ 模式 B: 蓝眼 ]
+</code></pre></div>
+<h3 id="32">3.2 奇异点集与“异瞳”人像的生成</h3>
+<p>根据最优传输的 <strong>Figalli 正则性理论</strong>，如果目标概率测度的支撑集是非凸的（例如包含两个互不相交的区域 <span class="arithmatex">\(\mathcal{A}\)</span> 和 <span class="arithmatex">\(\mathcal{B}\)</span>），则最优传输映射 <span class="arithmatex">\(T = \nabla u\)</span> 必然在源空间中存在一个<strong>非零测度的奇异集合（Singular Set）</strong> <span class="arithmatex">\(\Sigma\)</span>。</p>
+<ul>
+<li>在奇异集合 <span class="arithmatex">\(\Sigma\)</span> 处，Brenier 势能函数 <span class="arithmatex">\(u\)</span> 连续但不可微（形成“脊线”或“折痕”）。</li>
+<li>因此，最优传输映射 <span class="arithmatex">\(T = \nabla u\)</span> 在 <span class="arithmatex">\(\Sigma\)</span> 处是<strong>不连续（发生跃迁）</strong>的。</li>
+</ul>
+<p>当我们在隐空间中横穿奇异集合 <span class="arithmatex">\(\Sigma\)</span> 时：
+*   <strong>不连续的最优传输映射：</strong> 会从“双眼红色”直接跳跃到“双眼蓝色”，从而完美避开“半红半蓝眼”这一非物理的中间混合态（Mode Mixture）。
+*   <strong>奇异集合的边缘：</strong> 奇异集合 <span class="arithmatex">\(\Sigma\)</span> 的投影和边缘往往对应着数据流形的边界（临界状态）。在流形边缘处，可能存在罕见的、极端但物理上仍合规的样本，例如<strong>“左眼红、右眼蓝”（异瞳）</strong>。因为“异瞳”本身可能作为流形边界上的一个孤立极值点存在，当最优传输在边界发生极限跳转时，有概率精准击中并生成这一临界样本，而绝不会在瞳孔内部产生渐变的非物理过渡。</p>
+<hr />
+<h2 id="4-manifold-embedding-theorem">4. 流形嵌入定理 (Manifold Embedding Theorem)</h2>
+<p>在流形学习中，为了在欧氏空间中对抽象流形 <span class="arithmatex">\(\mathcal{M}\)</span> 进行数值计算与表示，我们必须保证该流形能够无损（保持拓扑同胚或微分同构）地嵌入到某个欧氏空间 <span class="arithmatex">\(\mathbb{R}^N\)</span> 中。流形嵌入定理为这种可行性提供了严格的数学保证。</p>
+<hr />
+<h2 id="5-whitney">5. Whitney 嵌入定理</h2>
+<p><strong>Whitney 嵌入定理（Whitney Embedding Theorem）</strong> 是微分拓扑学中的里程碑式定理，它给出了任意抽象流形嵌入到欧氏空间的维度上界。</p>
+<h3 id="51">5.1 定理陈述</h3>
+<blockquote>
+<p><strong>Whitney 强嵌入定理（Strong Embedding Theorem）：</strong>
+设 <span class="arithmatex">\(\mathcal{M}\)</span> 是一个 <span class="arithmatex">\(n\)</span> 维的实光滑、Hausdorff 且第二可数的流形，则存在一个从 <span class="arithmatex">\(\mathcal{M}\)</span> 到 <span class="arithmatex">\(2n\)</span> 维欧氏空间 <span class="arithmatex">\(\mathbb{R}^{2n}\)</span> 的光滑嵌入 <span class="arithmatex">\(f: \mathcal{M} \hookrightarrow \mathbb{R}^{2n}\)</span>。</p>
+<p><strong>Whitney 弱嵌入定理（Weak Embedding Theorem）：</strong>
+任何该类 <span class="arithmatex">\(n\)</span> 维光滑流形都可以光滑嵌入在 <span class="arithmatex">\(2n+1\)</span> 维欧氏空间 <span class="arithmatex">\(\mathbb{R}^{2n+1}\)</span> 中。</p>
+</blockquote>
+<h3 id="52">5.2 证明思想简述</h3>
+<ol>
+<li><strong>局部嵌入：</strong> 利用流形 Hausdorff 和第二可数的性质，构造其有限开覆盖 <span class="arithmatex">\(\{U_i\}_{i=1}^k\)</span>。通过局部坐标卡（Local Charts），每一个 <span class="arithmatex">\(U_i\)</span> 都可以局部同构地嵌入到 <span class="arithmatex">\(\mathbb{R}^n\)</span> 中。</li>
+<li><strong>单位分解（Partition of Unity）：</strong> 构造隶属于该开覆盖的单位分解 <span class="arithmatex">\(\{\rho_i\}_{i=1}^k\)</span>。</li>
+<li><strong>全局合成：</strong> 定义全局映射 <span class="arithmatex">\(\Phi: \mathcal{M} \to \mathbb{R}^{k(n+1)}\)</span>：
+    $$ \Phi(x) = \big(\rho_1(x)\phi_1(x), \dots, \rho_k(x)\phi_k(x), \rho_1(x), \dots, \rho_k(x)\big) $$
+    此映射构成了将 <span class="arithmatex">\(\mathcal{M}\)</span> 嵌入到极高维欧氏空间中的全局嵌入。</li>
+<li><strong>随机投影降维：</strong> 利用 Sard 定理，证明当投影空间维度 <span class="arithmatex">\(N \ge 2n+1\)</span> 时，几乎所有的线性投影 <span class="arithmatex">\(\pi: \mathbb{R}^{k(n+1)} \to \mathbb{R}^{N}\)</span> 限制在 <span class="arithmatex">\(\Phi(\mathcal{M})\)</span> 上依然是单射且为浸入（Immersed），从而最终将维度压缩至 <span class="arithmatex">\(2n+1\)</span>（或通过精细分析降至 <span class="arithmatex">\(2n\)</span>）。</li>
+</ol>
+<hr />
+<h2 id="6-urysohn-urysohns-lemma">6. Urysohn 引理 (Urysohn's Lemma)</h2>
+<p><strong>Urysohn 引理</strong> 是点集拓扑学中关于空间正规性（Normality）的关键定理，它为在拓扑空间中通过连续函数分离闭集提供了工具。</p>
+<h3 id="61">6.1 定理陈述</h3>
+<blockquote>
+<p><strong>Urysohn 引理：</strong>
+设 <span class="arithmatex">\(X\)</span> 是一个正规拓扑空间（Normal Space），<span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(X\)</span> 中两个互不相交的闭子集（即 <span class="arithmatex">\(A \cap B = \emptyset\)</span>）。则存在一个连续函数 <span class="arithmatex">\(f: X \to [0, 1]\)</span>，使得：
+$$ f(x) = 0, \quad \forall x \in A $$
+$$ f(x) = 1, \quad \forall x \in B $$</p>
+</blockquote>
+<h3 id="62">6.2 在分类与模式识别中的物理意义</h3>
+<p>在二分类问题中，我们可以将两类不同的数据样本集（例如“猫”与“狗”的图像）视为数据流形上的两个互不相交的闭集 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span>。
+Urysohn 引理指出：<strong>只要空间是正规的（度量空间天然满足此条件），就必定存在一个连续的分类判别决策函数 <span class="arithmatex">\(f\)</span>，能够完美地将两类数据区分开</strong>（一类输出为 0，另一类输出为 1）。这为分类器的合理性提供了拓扑学上的存在性证明。</p>
+<hr />
+<h2 id="7-universal-approximation-theorem">7. 万能逼近定理 (Universal Approximation Theorem)</h2>
+<p>虽然 Whitney 定理和 Urysohn 引理保证了编解码映射及分类映射的<strong>存在性</strong>，但我们仍需要一种具体的计算介质来<strong>逼近</strong>这些映射。这就是神经网络与万能逼近定理的结合点。</p>
+<h3 id="71-cybenko-1989-hornik-1991">7.1 定理陈述 (Cybenko 1989 / Hornik 1991)</h3>
+<blockquote>
+<p>设 <span class="arithmatex">\(\sigma: \mathbb{R} \to \mathbb{R}\)</span> 是一个非恒等、有界且连续的单变量激活函数（例如 Sigmoid）。对于任意定义在 <span class="arithmatex">\(\mathbb{R}^r\)</span> 的紧子集 <span class="arithmatex">\(K\)</span> 上的连续函数 <span class="arithmatex">\(f \in C(K)\)</span>，以及任意给定的 <span class="arithmatex">\(\epsilon &gt; 0\)</span>，都存在一个单隐层的前馈神经网络 <span class="arithmatex">\(G(x)\)</span>：
+$$ G(x) = \sum_{i=1}^N \alpha_i \sigma(w_i^T x + b_i) $$
+使得其与目标函数的逼近误差满足：
+$$ \sup_{x \in K} |G(x) - f(x)| &lt; \epsilon $$</p>
+</blockquote>
+<h3 id="72">7.2 深度学习的几何理论闭环 (大一统视角)</h3>
+<p>我们将上述几何定理串联，即可建立起深度学习的完整几何理论闭环：</p>
+<div class="highlight"><pre><span></span><code>+-------------------------------------------------------------+
+|                     流形分布假说                             |
+|          数据集中在低维流形 \mathcal{M} 上                  |
++------------------------------+------------------------------+
+                               |
+                               v
++------------------------------+------------------------------+
+|                     Whitney 嵌入定理                        |
+|       保证了低维隐空间到流形之间编解码连续映射的存在性       |
++------------------------------+------------------------------+
+                               |
+                               v
++------------------------------+------------------------------+
+|                      Urysohn 引理                           |
+|         保证了流形上不相交类别之间连续决策边界的存在性       |
++------------------------------+------------------------------+
+                               |
+                               v
++------------------------------+------------------------------+
+|                     万能逼近定理                            |
+|          保证了深度神经网络（DNN）能以任意精度               |
+|            去学习并逼近上述所有连续映射                     |
++-------------------------------------------------------------+
+</code></pre></div>
+<hr />
+<h2 id="8-ae-ot">8. 奇异集合与 AE-OT 模型</h2>
+<p>尽管上述连续映射理论非常完备，但正如我们在第 3 节中所探讨的：<strong>最优传输映射 <span class="arithmatex">\(T: \mathcal{Z} \to \mathcal{M}\)</span>（概率变换）在目标多模式分布下往往是非连续的</strong>。
+这带来了一个本质冲突：<strong>传统的生成网络试图用连续的 DNN（由万能逼近定理保证）去逼近一个本质上不连续的映射 <span class="arithmatex">\(T\)</span>，这直接导致了模式崩溃（Mode Collapse）或模式混合（Mode Mixture）</strong>。</p>
+<p>为了彻底解决这一内在矛盾，顾险峰教授团队提出了 <strong>AE-OT  generative 模型</strong>。</p>
+<h3 id="81-ae-ot-manifold-decoupling">8.1 AE-OT 的双阶段架构 (Manifold Decoupling)</h3>
+<p>AE-OT 的核心思想是<strong>将“流形几何学习”与“概率测度传输”显式地解耦（Decoupling）</strong>：</p>
+<ol>
+<li>
+<p><strong>阶段一：自编码器（Autoencoder, AE）学习流形嵌入</strong></p>
+<ul>
+<li><strong>编码映射（Encoder）</strong> <span class="arithmatex">\(g_\theta: \mathcal{M} \to \mathcal{Z}\)</span> 将高维图像空间中的数据流形同胚映射到低维隐空间（Latent Space） <span class="arithmatex">\(\mathcal{Z} = \mathbb{R}^d\)</span>。</li>
+<li><strong>解码映射（Decoder）</strong> <span class="arithmatex">\(f_\xi: \mathcal{Z} \to \mathcal{M}\)</span> 将隐空间的特征代码重建回流形上。</li>
+<li>由于编解码映射均为连续同胚，根据万能逼近定理，可以用常规的深度神经网络（如 CNN）进行极好的训练与拟合。</li>
+</ul>
+</li>
+<li>
+<p><strong>阶段二：最优传输（OT）处理隐空间概率变换</strong></p>
+<ul>
+<li>编码器将真实数据的经验分布推前到隐空间，形成隐空间分布 <span class="arithmatex">\(\nu\)</span>。由于数据具有多模式，<span class="arithmatex">\(\nu\)</span> 的支撑集往往非凸或不连通。</li>
+<li>我们在隐空间输入标准白噪声分布 <span class="arithmatex">\(\mu\)</span>（支撑集为凸集 <span class="arithmatex">\(\Omega\)</span>）。</li>
+<li>我们不使用神经网络，而是通过求解<strong>半离散最优传输（Semi-discrete Optimal Transport, SDOT）</strong>的变分问题（等价于求解 Monge-Ampère 方程），直接计算出从 <span class="arithmatex">\(\mu\)</span> 到 <span class="arithmatex">\(\nu\)</span> 的不连续最优传输映射 <span class="arithmatex">\(T: \Omega \to \mathcal{Z}\)</span>。</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>[ 噪声空间 \Omega, \mu ]  ---(最优传输映射 T, 允许不连续)---&gt;  [ 隐空间 \mathcal{Z}, \nu ]
+                                                                   |
+                                                      (连续解码器 f_\xi)
+                                                                   v
+                                                        [ 数据流形 \mathcal{M} ]
+</code></pre></div>
+<h3 id="82">8.2 奇异集合的判定与避免模式混合</h3>
+<p>在半离散最优传输中，隐空间被划分为若干个 <strong>Power Cells</strong>（权重胞腔） <span class="arithmatex">\(\{W_i(h)\}\)</span>：
+$$ W_i(h) = {x \in \Omega \mid \langle x, y_i \rangle - h_i \ge \langle x, y_j \rangle - h_j, \forall j \neq i} $$
+其中 <span class="arithmatex">\(y_i\)</span> 是训练集样本在隐空间中的投影码（模式中心），<span class="arithmatex">\(h_i\)</span> 是通过变分法求解得到的胞腔高度（权重）。</p>
+<ul>
+<li><strong>奇异集合的精确定义：</strong> 胞腔与胞腔相交的公共边界（即 Power Diagram 的骨架）就是 Brenier 势能函数的非微点集，即最优传输映射的<strong>奇异集合 <span class="arithmatex">\(\Sigma\)</span></strong>。</li>
+<li><strong>不连续映射的实现：</strong> 当白噪声点 <span class="arithmatex">\(x \in W_i(h)\)</span> 时，传输映射将其直接映射为对应的离散模式中心 <span class="arithmatex">\(y_i\)</span>。</li>
+<li><strong>奇异点检测算法：</strong> 
+    在生成样本时，我们在胞腔中心之间进行插值。为防止插值跨越不连续的胞腔边界（产生非物理的模式混合），AE-OT 通过检测相邻胞腔法向量的夹角 <span class="arithmatex">\(\theta_{ik}\)</span> 是否超过预设阈值 <span class="arithmatex">\(\hat{\theta}\)</span> 来定位奇异集合 <span class="arithmatex">\(\Sigma\)</span>。
+    如果随机噪声采样点落入奇异集合的邻域内，则<strong>拒绝采样（Discard）</strong>或<strong>限制重插值</strong>。这从理论和算法上完全避免了“半红半蓝眼”等无意义过渡态的生成，保证了生成的图像始终落在干净的数据流形上。</li>
+</ul>
+<hr />
+<h2 id="_2">思考题</h2>
+<ol>
+<li>为什么在流形学习中，隐空间的维度不能设得无限小？试用 Whitney 嵌入定理进行定量解释。</li>
+<li>若生成器 <span class="arithmatex">\(G: \mathcal{Z} \to \mathcal{M}\)</span> 是不连续的最优传输映射，它在数值计算上会遇到什么困难？AE-OT 是如何通过“解偶”来克服这一困难的？</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
