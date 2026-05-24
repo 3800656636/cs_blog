@@ -52,7 +52,8 @@ nav:
       - 信息论 (T3): robotics/information-theory.md
       - 深度学习理论 (L4): robotics/dl-theory.md
       - 理论强化学习 (L5): robotics/rl-theory.md
-      - 图神经网络 (E2): robotics/gnn.md
+      - 图神经网络 (E2): cs/gnn.md
+        - 节点嵌入 : cs/gnn/1.md 
   - Algorithm competition (算法竞赛):
       - 初级:
           - 前缀和: competition1/prefix_sum.md
