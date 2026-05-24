@@ -38,13 +38,7 @@ plugins:
 nav:
   - 首页: index.md
   - Mathematics (数学类):
-      - 数学分析 (M1):
-          - 概览: math/analysis/index.md
-          - 高维微积分与微分拓扑: math/analysis/limits.md
-          - 测度论与Lebesgue积分: math/analysis/derivatives.md
-          - 子流形积分与Stokes/散度定理: math/analysis/limits.md
-          - 函数空间与Fourier分析: math/analysis/derivatives.md
-      - 实分析 (M2): math/algebra.md
+      - 实分析 (M2): math/real_analysis.md
       - 计算共形几何 (M3): math/measure-theory.md
       - 凸优化 (T4): math/optimization.md
   - Computer Science (计算机类):
@@ -58,7 +52,7 @@ nav:
       - 信息论 (T3): robotics/information-theory.md
       - 深度学习理论 (L4): robotics/dl-theory.md
       - 理论强化学习 (L5): robotics/rl-theory.md
-      - 图神经网络 (E2): robotics/modern-robotics.md
+      - 图神经网络 (E2): robotics/gnn.md
   - Algorithm competition (算法竞赛):
       - 初级:
           - 前缀和: competition1/prefix_sum.md
