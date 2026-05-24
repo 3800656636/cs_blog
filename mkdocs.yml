@@ -34,10 +34,13 @@ nav:
 - 样式语法: styling-syntaxes.md
 - Mathematics (数学类):
   - 实分析 (M2):
-    - 高维微积分与微分几何: math/analysis/real_analysis/1.md
+    - 测度论: math/analysis/real_analysis/1.md
+  - 最优传输（M1):
+    - 简述: posts/简述.md
 - Computer Science (计算机类):
   - 图神经网络:
     - 节点嵌入: posts/节点嵌入_1.md
+    - 节点嵌入论文（三篇）: posts/节点嵌入论文（三篇）.md
 - Algorithm competition (算法竞赛):
   - 初级:
     - 前缀和: competition1/prefix_sum.md
